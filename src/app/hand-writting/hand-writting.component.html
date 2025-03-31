@@ -1,0 +1,34 @@
+<p *ngIf="hideUI">Loading model...</p>
+<!-- <button (click)="loadFile()">Load File</button> -->
+
+
+
+<img [src]="imgSrc">
+
+<div [ngClass]="{'canvas-hidden':hideUI}">
+    <canvas #drawCanvas width="196" height="196" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <div>
+
+        <button (click)="refresh()">Clear</button>
+        <button (click)="test()">Test</button>
+        <!-- <button (click)="serializeModel()">Serialize</button> -->
+        <!-- <button (click)="ontrain()">Retrain</button> -->
+        <!-- <button (click)="loadStr()">Load</button> -->
+        <!-- <input [(ngModel)]="modelStr" style="visibility: hidden;"/> -->
+    </div>
+    <div *ngIf="predictedVal">
+        <table border="1">
+            <tr *ngFor="let d of predictedVal">
+                <td>{{d.i}}</td>
+                <td>{{d.confidence}}%</td>
+            </tr>
+        </table>
+
+        <div>
+            <label>Final Value:</label>
+            <strong>{{finalPrediction}}</strong>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "",
@@ -32,7 +33,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@tensorflow/tfjs/dist/tf.js",
+              "node_modules/@tensorflow/tfjs-vis/dist/index.js"
+            ]
           },
           "configurations": {
             "production": {
